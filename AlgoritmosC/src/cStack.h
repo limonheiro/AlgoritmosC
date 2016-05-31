@@ -1,9 +1,10 @@
-/*
- * stack.h
- *
- *  Created on: 30 de mai de 2016
- *      Author: joaopaulodelgadopreti
- */
+/**************************************************************************
+ * Biblioteca de Pilha		                                              *
+ *                                                                        *
+ * Biblioteca com operações de pilha							 		  *
+ * Data: 30/05/2016			                                              *
+ * Autor: João Paulo D. Preti                                             *
+ **************************************************************************/
 
 #ifndef CSTACK_H_
 #define CSTACK_H_

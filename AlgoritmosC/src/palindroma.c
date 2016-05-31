@@ -1,9 +1,10 @@
-/*
- * palindroma.c
- *
- *  Created on: 30 de mai de 2016
- *      Author: joaopaulodelgadopreti
- */
+/**************************************************************************
+ * Programa palindroma.c	                                              *
+ *                                                                        *
+ * Demonstracão do uso de pilha para verificar se uma palavra é palíndroma*
+ * Data: 30/05/2016			                                              *
+ * Autor: João Paulo D. Preti                                             *
+ **************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>

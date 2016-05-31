@@ -1,9 +1,10 @@
-/*
- * ponteiros.c
- *
- *  Created on: 30 de mai de 2016
- *      Author: joaopaulodelgadopreti
- */
+/**************************************************************************
+ * Programa ponteiros.c                                         	      *
+ *                                                                        *
+ * Demonstracão do uso de ponteiros        								  *
+ * Data: 30/05/2016			                                              *
+ * Autor: João Paulo D. Preti                                             *
+ **************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
