@@ -5,13 +5,13 @@
  * Data: 30/05/2016			                                              *
  * Autor: João Paulo D. Preti                                             *
  **************************************************************************/
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "cStack.h"
 
-int mai() {
+int main1() {
 	char palavraOriginal[6] = "ARARA\0";
 	char palavraModificada[6];
 	cStack pilha;
@@ -27,3 +27,4 @@ int mai() {
 
 	return EXIT_SUCCESS;
 }
+*/

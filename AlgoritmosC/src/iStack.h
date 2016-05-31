@@ -70,7 +70,7 @@ int capacity(iStack *stack) {
 
 void show(iStack *stack) {
     while (!isEmpty(stack)) {
-        printf("%c", pop(stack));
+        printf("%d", pop(stack));
     }
 }
 

@@ -5,11 +5,11 @@
  * Data: 30/05/2016			                                              *
  * Autor: João Paulo D. Preti                                             *
  **************************************************************************/
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main0() {
 	//Exemplo 1
 	long a = 5;
 	long *aPtr = &a;
@@ -60,4 +60,4 @@ int main() {
 
 	return 0;
 }
-
+*/
