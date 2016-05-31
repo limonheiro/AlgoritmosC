@@ -44,6 +44,7 @@ int pop(iStack *stack) {
         return stack->elements[stack->top+1];
     } else {
         printf("Pop not allowed: stack is empty.\n");
+        return -1;
     }
 }
 
