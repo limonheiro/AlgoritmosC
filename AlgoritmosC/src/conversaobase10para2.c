@@ -5,26 +5,23 @@
  * Data: 30/05/2016			                                              *
  * Autor: João Paulo D. Preti                                             *
  **************************************************************************/
-/*
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "iStack.h"
 
 int main() {
-	int base10 = 34;
+	int base10 = 33;
 	iStack pilha;
 	init(&pilha);
-	int resultado=0;
 	do {
-		resultado = base10/2;
-		int resto = base10%2;
-		push(&pilha,resto);
-		base10=resultado;
-	} while (resultado>0);
+		push(&pilha,base10%2);
+		base10 = base10/2;
+	} while (base10>0);
 
 	show(&pilha);
 
 	return EXIT_SUCCESS;
 }
-*/
+
