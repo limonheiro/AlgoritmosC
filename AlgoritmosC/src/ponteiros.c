@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main0() {
+int main() {
 	//Exemplo 1
 	long a = 5;
 	long *aPtr = &a;

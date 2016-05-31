@@ -11,7 +11,7 @@
 #include <string.h>
 #include "cStack.h"
 
-int main1() {
+int main() {
 	char palavraOriginal[6] = "ARARA\0";
 	char palavraModificada[6];
 	cStack pilha;
