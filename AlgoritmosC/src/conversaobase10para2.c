@@ -5,7 +5,7 @@
  * Data: 30/05/2016			                                              *
  * Autor: João Paulo D. Preti                                             *
  **************************************************************************/
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,4 +24,4 @@ int main() {
 
 	return EXIT_SUCCESS;
 }
-
+*/
