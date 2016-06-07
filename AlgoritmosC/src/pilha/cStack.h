@@ -14,9 +14,10 @@
 typedef struct cStack {
     char elements[SIZE];
     int top;
+    int id;
 }cStack;
 
-void init(cStack *stack);
+void init(cStack *stack, int id);
 void push(cStack *stack, char element);
 char pop(cStack *stack);
 char top(cStack *stack);
@@ -26,8 +27,9 @@ int size(cStack *stack);
 int capacity(cStack *stack);
 void show(cStack *stack);
 
-void init(cStack *stack) {
+void init(cStack *stack, int id) {
     stack->top = -1;
+    stack->id = id;
 }
 
 void push(cStack *stack, char element) {

@@ -14,7 +14,7 @@
 int main() {
 	int base10 = 33;
 	iStack pilha;
-	init(&pilha);
+	init(&pilha,1);
 	do {
 		push(&pilha,base10%2);
 		base10 = base10/2;

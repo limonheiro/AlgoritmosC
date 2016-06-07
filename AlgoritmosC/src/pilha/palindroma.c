@@ -15,8 +15,8 @@ int main() {
 	char palavraOriginal[6] = "ARARA\0";
 	char palavraModificada[6];
 	cStack pilha;
-	init(&pilha);
-
+	init(&pilha, 1);
+)
 	for (int i = 0; i < 5; i++)
 		push(&pilha, palavraOriginal[i]);
 

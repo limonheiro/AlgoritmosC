@@ -27,7 +27,8 @@ int avaliarAberturaEncerramento(char expressao[], char charsAbertura[], char cha
 
 		if (in(expressao[i],charsEncerramento)>=0) {
 			if (!isEmpty(&pilha)) {
-				if (in(pop(&pilha),charsAbertura) == in(expressao[i],charsEncerramento)) {
+				if (in(pop(&pilha),charsAbertura)
+					== in(expressao[i],charsEncerramento)) {
 					//Não faz nada. O pop ja foi executado.
 				} else {
 					return i;
