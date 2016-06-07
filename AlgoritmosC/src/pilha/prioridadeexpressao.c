@@ -4,7 +4,7 @@
  * Verificando a corretude na prioridade das expressões com pilha		  *
  * Autor: João Paulo D. Preti                                             *
  **************************************************************************/
-/*
+/*d
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
