@@ -72,7 +72,7 @@ int capacity(dStack *stack) {
 
 void show(dStack *stack) {
     while (!isEmpty(stack)) {
-        printf("%d\n", pop(stack));
+        printf("%lf\n", pop(stack));
     }
 }
 
