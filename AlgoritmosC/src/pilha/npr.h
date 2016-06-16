@@ -12,9 +12,17 @@
 #include "dStack.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 char* infixa_posfixa (char infixa[]);
 double avalia(char *sentence);
+
+int prio(char *op) {
+	if (*op=='(') return 1;
+	if (*op=='+' || *op=='-') return 2;
+	if (*op=='*' || *op=='/') return 3;
+	return -1;
+}
 
 /*
  * Varrer a expressão da esquerda para a direita e, para cada símbolo:
@@ -31,7 +39,70 @@ double avalia(char *sentence);
  */
 
 char* infixa_posfixa (char infixa[]){
+	sStack pilha;
+	init(&pilha,1);
+	char posfixa[100] = "";
+	char *word;
+	char buffer[10];
+	word = strtok(infixa, " ");
+	while (word != NULL) {
+		if (in(word, "+/-*")) {
+			while (!isEmpty(&pilha) && prio(top(&pilha))>=prio(word)){
+				strcat(posfixa, pop(&pilha));
+				strcat(posfixa, " ");
+			}
+			push(&pilha, word);
+		} else if (word[0] == '(') {
+			//empilha o parenteses
+			push(&pilha, "(");
+			//concatena na saída o número
+			memcpy(buffer, &word[1], strlen(word) - 1);
+			strcat(posfixa, buffer);
+			strcat(posfixa, " ");
+		} else if (word[strlen(word) - 1] == ')') {
+			memcpy(buffer, &word[0], strlen(word) - 1);
+			strcat(posfixa, buffer);
+			strcat(posfixa, " ");
+			while (strcmp(top(&pilha),"(")!=0){
+				strcat(posfixa, pop(&pilha));
+				strcat(posfixa, " ");
+			}
+			//descarta o parenteses
+			pop(&pilha);
+		} else {
+			//concatena na saída o número
+			strcat(posfixa, word);
+			strcat(posfixa, " ");
+		}
+		word = strtok( NULL, " ");
+	}
+	while (!isEmpty(&pilha)) {
+		strcat(posfixa, pop(&pilha));
+		strcat(posfixa, " ");
+	}
 
+	return posfixa;
+}
+
+int in(char *elemento, char elementos[]) {
+	for (int i = 0; elementos[i]!=0; i++)
+		if (*elemento == elementos[i])
+			return 1;
+	return 0;
+}
+
+double calcula(double valor1, double valor2, char *op) {
+	if (*op=='+')
+		return valor1 + valor2;
+	if (*op=='-')
+		return valor1 - valor2;
+	if (*op=='*')
+		return valor1 * valor2;
+	if (*op=='/')
+		return valor1 / valor2;
+
+	printf("Invalid operation: %c\n", *op);
+	return 0;
 }
 
 /*
@@ -44,7 +115,24 @@ char* infixa_posfixa (char infixa[]){
 
 double avalia(char *sentence) {
 
+	dStack pilha;
+	init(&pilha, 1);
 
+	char *word;
+	double valor;
+
+	word = strtok(sentence, " ");
+
+	while (word != NULL) {
+		if (in(word,"+/-*")) {
+			push(&pilha, calcula(pop(&pilha), pop(&pilha), word));
+		} else {
+			sscanf(word, "%lf", &valor);
+			push(&pilha, valor);
+		}
+		word = strtok( NULL, " ");
+	}
+	return pop(&pilha);
 }
 
 #endif /* NPR_H_ */
