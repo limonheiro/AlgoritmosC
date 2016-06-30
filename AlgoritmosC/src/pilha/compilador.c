@@ -4,8 +4,9 @@
  *  Created on: 28 de jun de 2016
  *      Author: joaopaulodelgadopreti
  */
+/*
 #include <string.h>
-#include "../../iStack.h"
+#include "iStack.h"
 
 void getInstrucao(char* instrucao, char* linha) {
 	strcpy(instrucao, linha);
@@ -79,3 +80,4 @@ int main() {
 
 	return 0;
 }
+*/
