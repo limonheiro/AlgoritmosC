@@ -27,7 +27,7 @@ int size(sdStack *stack, int idStack);
 int capacity(sdStack *stack, int idStack);
 void show(sdStack *stack, int idStack);
 
-void init(sStack *stack, int idStack) {
+void init(sdStack *stack, int idStack) {
 	if (idStack==1) {
 		stack->top1 = -1;
 		if (stack->top2==-2) stack->top2=SIZE;
@@ -37,7 +37,7 @@ void init(sStack *stack, int idStack) {
 	}
 }
 
-void push(sStack *stack, char *element, int idStack) {
+void push(sdStack *stack, char *element, int idStack) {
     if (!isFull(stack)) {
     	if (idStack==1) {
     		stack->top1++;
@@ -50,7 +50,7 @@ void push(sStack *stack, char *element, int idStack) {
         printf("Push not allowed: stack is full.\n");
 }
 
-char* pop(sStack *stack, int idStack) {
+char* pop(sdStack *stack, int idStack) {
 	if (idStack==1) {
 		if (!isEmpty(stack, 1)) {
 			stack->top1--;
@@ -70,32 +70,32 @@ char* pop(sStack *stack, int idStack) {
 	}
 }
 
-char* top(sStack *stack, int idStack) {
+char* top(sdStack *stack, int idStack) {
 	if (idStack==1)
 		return (isEmpty(stack,1))?" ":stack->elements[stack->top1];
 	else
 		return (isEmpty(stack,idStack))?" ":stack->elements[stack->top2];
 }
 
-int isEmpty(sStack *stack, int idStack) {
+int isEmpty(sdStack *stack, int idStack) {
 	if (idStack==1)
 		return stack->top1==-1;
 	else
 		return stack->top2==SIZE;
 }
 
-int isFull(sStack *stack) {
+int isFull(sdStack *stack) {
     return stack->top1+1==stack->top2;
 }
 
-int size(sStack *stack, int idStack) {
+int size(sdStack *stack, int idStack) {
 	if (idStack==1)
 		return stack->top1+1;
 	else
 		return SIZE-stack->top2;
 }
 
-int capacity(sStack *stack, int idStack) {
+int capacity(sdStack *stack, int idStack) {
 	if (idStack==1)
 		return size(stack, 1) + (stack->top2-stack->top1+1);
 	else {
@@ -103,7 +103,7 @@ int capacity(sStack *stack, int idStack) {
 	}
 }
 
-void show(sStack *stack, int idStack) {
+void show(sdStack *stack, int idStack) {
 	if (idStack==1)
 		while (!isEmpty(stack,1)) {
 			printf("%s", pop(stack,1));
