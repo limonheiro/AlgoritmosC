@@ -1,7 +1,7 @@
 /*
  * escalonadorprocessos.c
  *
- *  Created on: 11 de jul de 2016
+ *  Created on: 17 de jul de 2016
  *      Author: joaopaulodelgadopreti
  *
  * Fonte: Wikipedia
