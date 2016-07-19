@@ -27,10 +27,10 @@
  * para concluir seu processamento. Salvar os registradores neste caso implica em salvar
  * quanto tempo de processamento foi realizado para aquele processo.
  *
+ * Responder:
+ * Tempo total gasto para execução de todos os processos com a preempção (algoritmo RR)
+ * Tempo total gasto previsto sem a preempção (se fosse serializado)
+ * Tempo ocioso da CPU (se um processo terminar antes do tempo alocado na CPU, o tempo restante não pode ser utilizado para outro processo)
  */
-
-//Tempo total gasto para execução de todos os processos com a preempção (algoritmo RR)
-//Tempo total gasto previsto sem a preempção (se fosse serializado)
-//Tempo ocioso da CPU (se um processo terminar antes do tempo alocado na CPU, o tempo restante não pode ser utilizado para outro processo)
 
 
