@@ -1,7 +1,7 @@
 /*
  * escalonadorprocessos.c
  *
- *  Created on: 17 de jul de 2016
+ *  Created on: 11 de jul de 2016
  *      Author: joaopaulodelgadopreti
  *
  * Fonte: Wikipedia
@@ -27,10 +27,93 @@
  * para concluir seu processamento. Salvar os registradores neste caso implica em salvar
  * quanto tempo de processamento foi realizado para aquele processo.
  *
- * Responder:
- * Tempo total gasto para execução de todos os processos com a preempção (algoritmo RR)
- * Tempo total gasto previsto sem a preempção (se fosse serializado)
- * Tempo ocioso da CPU (se um processo terminar antes do tempo alocado na CPU, o tempo restante não pode ser utilizado para outro processo)
+ * Considerar que existem N CPUs, cada uma possui fila própria onde os processos são alocados de acordo com o time-sharing mais otimizado para aquele processo.
+ *
  */
+/*
+#include "processoQueue.h"
 
+#define CPUS 2
 
+typedef struct cpu {
+	int id;
+	int tempoCompartilhamento;
+	processo processo;
+}cpu;
+
+int algumProcessoExecutando(cpu cpus[]) {
+	for (int i = 0; i < CPUS; i++) {
+		if (cpus[i].processo.tempoProcessado<cpus[i].processo.tempoDuracao)
+			return 1;
+	}
+	return 0;
+}
+
+void alocarProcesso(cpu *cpu, processoQueue *fila, processoQueue *historico) {
+	if (cpu->processo.tempoProcessado < cpu->processo.tempoDuracao) {
+		enqueue(fila,cpu->processo);
+	} else {
+		if (cpu->processo.id>0) enqueue(historico,cpu->processo); // sem a condição a primeira chamada ao procedimento tenta jogar no historico o processo que esta na cpu, mas nao tem ninguem antes do primeiro processo alocado
+		cpu->processo.id=0; //para garantir que ao final do programa as cpus sem processo em execução estejam com p.id=0
+	}
+	cpu->processo = dequeue(fila);
+	cpu->processo.numAlocacoes++;
+}
+
+void inicializarCPUS(cpu cpus[]) {
+	for (int i = 0; i < CPUS; i++) {
+		cpus[i].id = i;
+		cpus[i].tempoCompartilhamento = (i*10)+10;
+	}
+}
+
+int main() {
+	processoQueue fila,historico; //a primeira fila representa os processos em estado de pronto para execução e a segunda os processos que foram finalizados
+	init(&fila,1);
+	init(&historico,2);
+
+	enqueue(&fila,(processo){1,15,0,0});
+	enqueue(&fila,(processo){2,20,0,0});
+	enqueue(&fila,(processo){3,10,0,0});
+	enqueue(&fila,(processo){4,30,0,0});
+	enqueue(&fila,(processo){5,35,0,0});
+	enqueue(&fila,(processo){6,25,0,0});
+	enqueue(&fila,(processo){7,50,0,0});
+	enqueue(&fila,(processo){8,05,0,0});
+	enqueue(&fila,(processo){9,20,0,0});
+
+	cpu cpus[CPUS];
+	inicializarCPUS(cpus);
+
+	int tempo=0;
+
+	while (!isEmpty(&fila) || algumProcessoExecutando(cpus)) {
+
+		for (int i = 0; i < CPUS; i++) {
+			if ((tempo%cpus[i].tempoCompartilhamento)==0 && !isEmpty(&fila)) {
+				printf("CPU %d:\tPID: %d\t TIME: %d\n",i+1,peek(&fila).id,tempo);
+				alocarProcesso(&cpus[i],&fila,&historico);
+			}
+
+			cpus[i].processo.tempoProcessado++;
+		}
+
+		tempo++;
+	}
+
+	//serve para tirar o ultimo processo em execução no processador e guardar no historico
+	for (int i = 0; i < CPUS; i++)
+		if (cpus[i].processo.id>0)
+			enqueue(&historico,cpus[i].processo);
+
+	printf("Tempo total de processamento: %d\n",tempo);
+	printf("\n\n");
+
+	while (!isEmpty(&historico)) {
+		processo p = dequeue(&historico);
+		printf("PID: %d\tNum. Alocacoes: %d\tTempo gasto: %d\t\tTempo ocioso :%d\n",p.id,p.numAlocacoes,p.tempoProcessado, p.tempoProcessado-p.tempoDuracao);
+	}
+
+	return 0;
+}
+*/

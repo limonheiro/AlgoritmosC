@@ -16,13 +16,7 @@
 
 char* infixa_posfixa (char infixa[]);
 double avalia(char *sentence);
-
-int prio(char *op) {
-	if (*op=='(') return 1;
-	if (*op=='+' || *op=='-') return 2;
-	if (*op=='*' || *op=='/') return 3;
-	return -1;
-}
+int isPosfixaValida(char *sentence);
 
 /*
  * Varrer a expressão da esquerda para a direita e, para cada símbolo:
@@ -39,49 +33,7 @@ int prio(char *op) {
  */
 
 char* infixa_posfixa (char infixa[]){
-	sStack pilha;
-	init(&pilha,1);
-	char posfixa[100] = "";
-	char *word;
-	char buffer[10];
-	word = strtok(infixa, " ");
-	while (word != NULL) {
-		if (in(word, "+/-*")) {
-			while (!isEmpty(&pilha) && prio(top(&pilha))>=prio(word)){
-				strcat(posfixa, pop(&pilha));
-				strcat(posfixa, " ");
-			}
-			push(&pilha, word);
-		} else if (word[0] == '(') {
-			//empilha o parenteses
-			push(&pilha, "(");
-			//concatena na saída o número
-			memcpy(buffer, &word[1], strlen(word) - 1);
-			strcat(posfixa, buffer);
-			strcat(posfixa, " ");
-		} else if (word[strlen(word) - 1] == ')') {
-			memcpy(buffer, &word[0], strlen(word) - 1);
-			strcat(posfixa, buffer);
-			strcat(posfixa, " ");
-			while (strcmp(top(&pilha),"(")!=0){
-				strcat(posfixa, pop(&pilha));
-				strcat(posfixa, " ");
-			}
-			//descarta o parenteses
-			pop(&pilha);
-		} else {
-			//concatena na saída o número
-			strcat(posfixa, word);
-			strcat(posfixa, " ");
-		}
-		word = strtok( NULL, " ");
-	}
-	while (!isEmpty(&pilha)) {
-		strcat(posfixa, pop(&pilha));
-		strcat(posfixa, " ");
-	}
-
-	return posfixa;
+	return NULL;
 }
 
 int in(char *elemento, char elementos[]) {
@@ -133,6 +85,10 @@ double avalia(char *sentence) {
 		word = strtok( NULL, " ");
 	}
 	return pop(&pilha);
+}
+
+int isPosfixaValida(char *sentence) {
+	return 0;
 }
 
 #endif /* NPR_H_ */

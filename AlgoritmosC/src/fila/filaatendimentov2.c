@@ -4,7 +4,7 @@
  *  Created on: 5 de jul de 2016
  *      Author: joaopaulodelgadopreti
  */
-
+/*
 #include "regClienteQueue.h"
 #include <string.h>
 
@@ -84,5 +84,5 @@ int main() {
 	printf("Maior tempo de espera: %d\n",tempoMaximoEspera);
 	return 0;
 }
-
+*/
 

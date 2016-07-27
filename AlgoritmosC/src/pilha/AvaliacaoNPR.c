@@ -4,7 +4,7 @@
  *  Created on: 9 de jun de 2016
  *      Author: joaopaulodelgadopreti
  */
-
+/*
 #include "npr.h"
 
 int main() {
@@ -12,4 +12,4 @@ int main() {
 	printf("%f", avalia(sentence));
 	return 0;
 }
-
+*/

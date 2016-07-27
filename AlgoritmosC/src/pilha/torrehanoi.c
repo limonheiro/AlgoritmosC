@@ -5,7 +5,7 @@
  * Data: 30/05/2016			                                              *
  * Autor: João Paulo D. Preti                                             *
  **************************************************************************/
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,4 +39,5 @@ int main() {
 
 	mover(size(&torres[0]), &torres[0], &torres[2], &torres[1]);
 }
+*/
 
