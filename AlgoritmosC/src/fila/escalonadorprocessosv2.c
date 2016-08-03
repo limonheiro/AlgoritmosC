@@ -30,7 +30,7 @@
  * Considerar que existem N CPUs, cada uma possui fila própria onde os processos são alocados de acordo com o time-sharing mais otimizado para aquele processo.
  *
  */
-
+/*
 #include "processoQueue.h"
 
 #define CPUS 2
@@ -83,7 +83,8 @@ int cpuTempoProcessamento (cpu *cpu) {
 	int acumuladorTempo = 0;
 	if (!isEmpty(&(cpu->fila)))
 		for (int i = 0; i < size(&(cpu->fila)); i++)
-			acumuladorTempo+=get(&(cpu->fila),i).tempoDuracao-get(&(cpu->fila),i).tempoProcessado;
+			acumuladorTempo+=
+					get(&(cpu->fila),i).tempoDuracao-get(&(cpu->fila),i).tempoProcessado;
 	return acumuladorTempo;
 }
 
@@ -155,4 +156,4 @@ int main() {
 
 	return 0;
 }
-
+*/
