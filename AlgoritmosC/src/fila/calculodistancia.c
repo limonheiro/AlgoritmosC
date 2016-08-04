@@ -1,8 +1,6 @@
 /*
  * calculodistancia.c
  *
- *  Created on: 12 de jun de 2016
- *      Author: joaopaulodelgadopreti
  */
 /*
  A ideia de fila aparece naturalmente no cálculo de distâncias em um grafo.
@@ -32,4 +30,47 @@
  i   		0 	1 	2 	3 	4 	5
  dist[i]  	2 	3 	1 	0 	1 	6
  */
+
+#include "iQueue.h"
+
+#define CIDADES 6
+
+int dist[CIDADES];
+
+void distancias(int rotas[][CIDADES], int origem) {
+	iQueue fila;
+	int destino;
+
+	for (destino = 0; destino < CIDADES; ++destino)
+		dist[destino] = CIDADES;
+	dist[origem] = 0;
+	init(&fila,1);
+	enqueue(&fila, origem);
+
+	while (!isEmpty(&fila)) {
+		origem = dequeue(&fila);
+		for (destino = 0; destino < CIDADES; ++destino)
+			if (rotas[origem][destino] == 1 && dist[destino] >= CIDADES) {
+				dist[destino] = dist[origem] + 1;
+				enqueue(&fila, destino);
+			}
+	}
+}
+
+int main() {
+	int rotas[CIDADES][CIDADES] = {
+		  	{0, 1, 0, 0, 0, 0},
+		  	{0,	0, 1, 0, 0,	0},
+		  	{0,	0, 0, 0, 1, 0},
+		   	{0, 0, 1, 0, 1, 0},
+		   	{1, 0, 0, 0, 0, 0},
+		   	{0, 1, 0, 0, 0, 0}
+	};
+	int cidadeOrigem = 3;
+	distancias(rotas,cidadeOrigem);
+	printf("Distância da Cidade %i para:\n\n",cidadeOrigem);
+	for (int cidadeDestino = 0; cidadeDestino < CIDADES; cidadeDestino++) {
+		printf("Cidade %d -> %d Km\n", cidadeDestino, dist[cidadeDestino]);
+	}
+}
 
