@@ -22,18 +22,19 @@
 typedef struct iDeque {
     int elements[SIZE];
     int front;
+    int back;
     int size;
-    int rear;
     int id;
 }iDeque;
 
 void init(iDeque *deque, int id);
-void enqueue(iDeque *deque, int element); //insere no início
+void enqueue(iDeque *deque, int element); //insere no final
+void addFront(iDeque *deque, int element); //insere no inicio
 int dequeue(iDeque *deque); //remove do início
 void push(iDeque *deque, int element); //insere no fim
 int pop(iDeque *deque); //remove do fim
-int peek(iDeque *deque);
-int top(iDeque *deque);
+int front(iDeque *deque);
+int back(iDeque *deque);
 int isEmpty(iDeque *deque);
 int isFull(iDeque *deque);
 int size(iDeque *deque);
