@@ -30,7 +30,7 @@
  i   		0 	1 	2 	3 	4 	5
  dist[i]  	2 	3 	1 	0 	1 	6
  */
-
+/*
 #include "iQueue.h"
 
 #define CIDADES 6
@@ -73,4 +73,4 @@ int main() {
 		printf("Cidade %d -> %d Km\n", cidadeDestino, dist[cidadeDestino]);
 	}
 }
-
+*/
