@@ -22,13 +22,13 @@ typedef struct iDQueue {
     int size;
 }iDQueue;
 
-void init(iDQueue *queue);
-int enqueue(iDQueue *queue, int data);
-int dequeue(iDQueue *queue);
-int peek(iDQueue *queue);
-int isEmpty(iDQueue *queue);
-int size(iDQueue *queue);
-void show(iDQueue *queue);
+void init	(iDQueue *queue);
+int enqueue	(iDQueue *queue, int data);
+int dequeue	(iDQueue *queue);
+int peek	(iDQueue *queue);
+int isEmpty	(iDQueue *queue);
+int size	(iDQueue *queue);
+void show	(iDQueue *queue);
 void release(iDQueue *queue);
 
 void init(iDQueue *queue) {

@@ -19,23 +19,23 @@ typedef struct No {
 typedef struct iDStack {
     No *top;
     int size;
-}iDStack;
+}iLinkedList;
 
-void init(iDStack *stack);
-int push(iDStack *stack, int data);
-int pop(iDStack *stack);
-int top(iDStack *stack);
-int isEmpty(iDStack *stack);
-int size(iDStack *stack);
-void show(iDStack *stack);
-void release(iDStack *stack);
+void init	(iLinkedList *stack);
+int push	(iLinkedList *stack, int data);
+int pop		(iLinkedList *stack);
+int top		(iLinkedList *stack);
+int isEmpty	(iLinkedList *stack);
+int size	(iLinkedList *stack);
+void show	(iLinkedList *stack);
+void release(iLinkedList *stack);
 
-void init(iDStack *stack) {
+void init(iLinkedList *stack) {
 	stack->top= NULL;
 	stack->size = 0;
 }
 
-int push(iDStack *stack, int data) {
+int push(iLinkedList *stack, int data) {
 	No *novoNo = (No*) malloc(sizeof(No));
 	if (novoNo==NULL) return -1;
 	novoNo->data = data;
@@ -45,7 +45,7 @@ int push(iDStack *stack, int data) {
 	return 1;
 }
 
-int pop(iDStack *stack) {
+int pop(iLinkedList *stack) {
 	if (!isEmpty(stack)) {
 		No *aux;
 		aux = stack->top;
@@ -58,22 +58,22 @@ int pop(iDStack *stack) {
 		return -1;
 }
 
-int top(iDStack *stack) {
+int top(iLinkedList *stack) {
 	if (!isEmpty(stack))
 		return stack->top->data;
 	else
 		return -1;
 }
 
-int isEmpty(iDStack *stack) {
+int isEmpty(iLinkedList *stack) {
 	return stack->size==0;
 }
 
-int size(iDStack *stack) {
+int size(iLinkedList *stack) {
 	return stack->size;
 }
 
-void show(iDStack *stack) {
+void show(iLinkedList *stack) {
 	No *aux = stack->top;
 	while (aux!=NULL) {
 		printf("%d\n",aux->data);
@@ -81,7 +81,7 @@ void show(iDStack *stack) {
 	}
 }
 
-void release(iDStack *stack) {
+void release(iLinkedList *stack) {
 	if (!isEmpty(stack)) {
 		No *aux;
 		do {
